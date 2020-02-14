@@ -1,30 +1,44 @@
-import axios from 'axios';
-
 class Api {
   static async getUserInfo(username){
-    const response = await axios.get(`https://api.github.com/users/${username}`);
+    fetch(`https://api.github.com/users/${username}`).then((response) => {
+      return response.json();
+    })
+    .then((userInfo) => {
 
-    const followers = response.data.followers;
-    const following = response.data.following;
-    const avatar = response.data.avatar_url;
-    const repos = response.data.public_repos
+      const avatar = userInfo.avatar_url; 
+      const followers = userInfo.followers;
+      const following = userInfo.following;
+      const repos = userInfo.public_repos;
 
-    console.log(`Seguidores: ${followers}`);
-    console.log(`Seguindo: ${following}`);
-    console.log(`URL avatar: ${avatar}`);
-    console.log(`Repositórios: ${repos}`);
-
-    console.log(response);
+      console.log(avatar);
+      console.log(followers);
+      console.log(following);
+      console.log(repos);
+    });
   }
 
-  static async getUserRepo(username){
-    const response = await axios.get(`https://api.github.com/users/${username}/repos`);
+   static async getUserRepo(username){
+    fetch(`https://api.github.com/users/${username}/repos`).then((response) => {
+      return response.json();
+    })
+    .then((userRepo) => {
+
+      
+
+      console.log(userRepo);
+    });
   }
 
   static async getUserStarred(username){
-    const response = await axios.get(`https://api.github.com/users/${username}/starred`);
+    fetch(`https://api.github.com/users/${username}/starred`).then((response) => {
+      return response.json();
+    })
+    .then((userStarred) => {
 
-    console.log(response.data);
+
+
+      console.log(userStarred);
+    });
   }
 }
 
