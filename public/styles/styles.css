@@ -138,6 +138,25 @@ body, input, button {
 
 /* Desafio: */
 
+#gitDiv {
+  text-align: center;
+}
+
+#inputGit {
+  width: 900px;
+  border: 2px solid #aaa;
+  border-radius: 15px;
+  outline: none;
+  padding: 10px;
+  box-sizing: border-box;
+  transition: .15s;
+  margin-bottom: 50px;
+}
+
+#inputGit:focus {
+  box-shadow: 0 0 6px 0 dodgerblue;
+}
+
 #desafio {
   background-color: rgb(232, 245, 235);
   min-height: 85vh;
@@ -148,7 +167,58 @@ body, input, button {
   text-align: center;
   font-size: 2em;
   padding: 100px;
+  opacity: 80%;
 }
+
+#profile {
+  background-color: #fff;
+  padding: 20px;
+  width: 900px;
+  box-sizing: border-box;
+  margin: auto;
+  box-shadow: 0px 0px 5px black;
+}
+
+#profile h1 {
+  text-align: center;
+  font-size: 1.8em;
+  color: rgb(6, 50, 23);
+  opacity: 80%;
+}
+
+.container-gitRepo {
+  display: flex;
+  color: rgb(6, 50, 23);
+  font-weight: 700;
+  align-items: center;
+  opacity: 80%;
+}
+
+.left {
+  margin: 30px;
+}
+
+.left a {
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 700;
+  color: rgb(6, 50, 23);
+}
+
+.left img {
+  height: 160px;
+  border-radius: 50%;
+}
+
+.right ul {
+  list-style: none;
+  margin-bottom: 50px;
+}
+
+.right ul li{
+  line-height: 30px;
+}
+
 
 /* Footer: */
 
