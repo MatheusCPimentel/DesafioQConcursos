@@ -1,51 +1,58 @@
-@import url('http://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 
 * {
   padding: 0;
   margin: 0;
 }
 
-body {
-  background:
+body, input, button {
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+/* Home Page: */
+
+#container {
+  overflow: hidden;
+  background-color: #fff;
+}
+
+#bghome {
+  background: 
   linear-gradient(
     rgba(0, 0, 0, 0.40),
     rgba(0, 0, 0, 0.40)
   ),
-  url("../images/bg.jpg");
+  url(/images/bg.jpg); 
   background-repeat: no-repeat;
-  background-attachment: fixed;
   background-size: cover;
-  -webkit-font-smoothing: antialiased;
+  width: 100%; 
+  height: 100%; 
+  position: relative;
+  min-height: 100vh;
 }
 
-body, input, button {
-  font-family: Roboto, sans-serif;
-}
-
-#top {
-  margin: 40px 75px;
-  font-size: 1.2em;
-}
-
-#links {
+#mainnav {
   float: right;
+  margin: 50px 90px;
 }
 
-#links a {
+#mainnav a {
   padding: 10px 20px;
   text-decoration: none;
   color: #000;
   border-radius: 35px;
-  background: #eee;
+  background: #ddd;
   box-shadow: 2px 2px 3.5px 1px #000;
   margin: 10px;
+  transition: 0.5s;
 }
 
-#links a:hover {
-  background: white;
+#mainnav a:hover {
+  background: #fff;
 }
 
-#links a:active {
+#mainnav a:active {
   box-shadow: 1px 1px 0.5px 0.5px #000;
 }
 
@@ -54,15 +61,17 @@ body, input, button {
   color: #eee;
   text-shadow: 2px 2px 1px #000;
   font-weight: 500;
+  margin: 50px 90px;
+  font-size: 1.2em;
 }
 
 #maintext {
   color: #eee;
   text-align: center;
   position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 350px;
+  left: 600px;
+ 
   letter-spacing: 4px;
   text-shadow: 2px 3px 3px #000;
   line-height: 4.5em;
@@ -76,23 +85,84 @@ body, input, button {
   font-size: 55px;
 }
 
-#images {
+#social {
   position: absolute;
   top: 88%;
-  left: 42%;
+  left: 45%;
 }
 
-#images img {
+#social img {
   border-radius: 25%;
   color: rgba(0, 0, 0, 0.50);
   height: 60px;
   width: 60px;
   padding: 0 10px;
   opacity: 0.5;
-  filter: invert(99%) sepia(3%) saturate(111%) hue-rotate(254deg) brightness(112%) contrast(87%);
+  filter: invert(99%) sepia(3%) saturate(111%) hue-rotate(254deg) brightness(112%) contrast(87%);  
+  transition: 0.5s;
 }
 
-#images img:hover {
+#social img:hover {
   opacity: 0.7;
   cursor: pointer;
+  height: 70px;
+  width: 70px;
+}
+
+
+/* Sobre: */
+
+#sobre {
+  width: 100%;
+  min-height: 90vh;
+  margin: 50px auto;
+}
+
+#abouttext h2 {
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 50px;
+  font-weight: 700;
+}
+
+#abouttext p {
+  text-align: left;
+  font-size: 1.1em;
+  width: 60%;
+  letter-spacing: 2px;
+  word-spacing: 4px;
+  margin: 0 auto;
+  margin-bottom: 25px;
+}
+
+
+/* Desafio: */
+
+#desafio {
+  background-color: rgb(232, 245, 235);
+  min-height: 85vh;
+}
+
+#desafio h2 {
+  letter-spacing: 2px;
+  text-align: center;
+  font-size: 2em;
+  padding: 100px;
+}
+
+/* Footer: */
+
+footer {
+  background-color: rgb(48, 48, 48);
+  min-height: 15vh;
+  display: flex;
+  justify-content: center;
+  padding-top: 70px;
+  box-sizing: border-box;
+}
+
+footer p {
+  color: #eee;
+  font-size: 1.2em;
+  letter-spacing: 1.5px;
 }
