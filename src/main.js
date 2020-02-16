@@ -166,7 +166,10 @@ window.showStarred = function() {
 
 // --------------------------------*--------------------------------
 
+
 // Procurar por perfil no GitHub:
+
+// Pressionando enter:
 
 const inputEle = document.getElementById('inputGit');
 inputEle.addEventListener('keyup', function(e){
@@ -177,6 +180,17 @@ inputEle.addEventListener('keyup', function(e){
     gitStarred(this.value);
   }
 });
+
+
+// Clicando na imagem "search":
+
+const search = document.getElementById('search');
+search.onclick = function() {
+  gitProfile(inputEle.value);
+  gitRepo(inputEle.value);
+  gitStarred(inputEle.value);
+};
+
 
 gitProfile('matheuscpimentel');
 gitRepo('matheuscpimentel');
