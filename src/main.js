@@ -24,7 +24,7 @@ function gitRepo(githubName) {
   }).then(data => {
       renderGitRepo(data)
   }).catch(err => {
-      console.warn(err)
+      console.error(err)
   })
 }
 
@@ -37,7 +37,7 @@ function gitStarred(githubName) {
   }).then(data => {
       renderGitStarred(data)
   }).catch(err => {
-      console.warn(err)
+      console.error(err)
   })
 }
 
@@ -72,7 +72,7 @@ function renderGitCard(data) {
       </div>
 
       <div class="right">
-        <ul>
+        <ul id ="liRepo">
           <li>REPOSITÓRIOS: ${repos}</li>
           <li>SEGUIDORES: ${followers}</li>
           <li>SEGUINDO: ${following}</li>
@@ -98,20 +98,21 @@ function renderGitCard(data) {
 function renderGitRepo(data) {
 
   const repoDiv = document.getElementById('repo');
-  const repoList = 
+
+  const repoDefault = 
 
   ` <hr>
-    <h3>LISTA DOS 5 PRIMEIROS REPOSITÓRIOS</h3>
-    <ul>
-      <li>${data[0].name}</li>
-      <li>${data[1].name}</li>
-      <li>${data[2].name}</li>
-      <li>${data[3].name}</li>
-      <li>${data[4].name}</li>
-      <li>${data[5].name}</li>
-     </ul> `;
+    <h3>LISTA DE REPOSITÓRIOS (LIMITADO A 30)</h3>
+    <ul id = "ulRepo">
+    </ul> `;
 
-  repoDiv.innerHTML = repoList;
+  repoDiv.innerHTML = repoDefault;
+
+  const ul = document.getElementById('ulRepo');
+
+  const repoList = data.reduce((acc, actualObj) => `${acc}<li>${actualObj.name}</li>`, "")
+
+  ul.innerHTML = repoList;
 }
 
 
@@ -124,12 +125,20 @@ function renderGitStarred(data) {
   const starredDefault =
 
   ` <hr>
-    <h3>LISTA DOS 5 PRIMEIROS FAVORITOS</h3>
-    <ul>
+    <h3>LISTA DE FAVORITOS (LIMITADO A 30)</h3>
+    <ul id = "ulStarred">
     </ul> `;
 
-     starredDiv.innerHTML = starredDefault;
-  }
+  starredDiv.innerHTML = starredDefault;
+
+  const ul = document.getElementById('ulStarred');
+
+  const starredList = data.reduce((acc, actualObj) => `${acc}<li>${actualObj.name}</li>`, "")
+
+  ul.innerHTML = starredList;
+
+   
+}
 
 
 // --------------------------------*--------------------------------
