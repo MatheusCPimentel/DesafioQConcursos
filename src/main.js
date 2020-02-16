@@ -2,43 +2,37 @@
 
 // Profile:
 
-function gitProfile(githubName) {
-  fetch(`https://api.github.com/users/${githubName}`).then(response => {
-      if (!response.ok) {
-          throw Error('GitHub profile did not find!');
-      } 
-      return response.json();
-  }).then(data => {
-      renderGitCard(data);
-  }).catch(err => {
-      console.error(err);
-  });
+async function gitProfile (githubName) {
+  try {
+      const data = await fetch(`https://api.github.com/users/${githubName}`);
+      return renderGitCard(await data.json());
+  } catch (err) {
+      console.error(err)
+  }
 }
 
 
 // Repositório:
 
-function gitRepo(githubName) {
-  fetch(`https://api.github.com/users/${githubName}/repos`).then(response => {
-      return response.json()
-  }).then(data => {
-      renderGitRepo(data)
-  }).catch(err => {
+async function gitRepo (githubName) {
+  try {
+      const data = await fetch(`https://api.github.com/users/${githubName}/repos`);
+      return renderGitRepo(await data.json());
+  } catch (err) {
       console.error(err)
-  })
+  }
 }
 
 
 // Favoritos:
 
-function gitStarred(githubName) {
-  fetch(`https://api.github.com/users/${githubName}/starred`).then(response => {
-      return response.json()
-  }).then(data => {
-      renderGitStarred(data)
-  }).catch(err => {
+async function gitStarred (githubName) {
+  try {
+      const data = await fetch(`https://api.github.com/users/${githubName}/starred`);
+      return renderGitStarred(await data.json());
+  } catch (err) {
       console.error(err)
-  })
+  }
 }
 
 
