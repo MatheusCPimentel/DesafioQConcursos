@@ -7,14 +7,19 @@
 
 body, input, button {
   font-family: 'Open Sans', sans-serif;
-}
-
+} 
 
 /* Home Page: */
 
-#container {
+body {
   overflow: hidden;
+}
+
+#container {
+  overflow-y:scroll; 
+  height: 100vh;
   background-color: #fff;
+  scroll-behavior: smooth;
 }
 
 #bghome {
@@ -41,11 +46,20 @@ body, input, button {
   padding: 10px 20px;
   text-decoration: none;
   color: #000;
-  border-radius: 35px;
   background: #ddd;
   box-shadow: 2px 2px 3.5px 1px #000;
-  margin: 10px;
+  margin: 5px;
   transition: 0.5s;
+}
+
+#mainnav a:nth-child(1){
+  border-top-left-radius: 35px;
+  border-bottom-left-radius: 35px;
+}
+
+#mainnav a:nth-child(3) {
+  border-top-right-radius: 35px;
+  border-bottom-right-radius: 35px;
 }
 
 #mainnav a:hover {
@@ -115,7 +129,7 @@ body, input, button {
 #sobre {
   width: 100%;
   min-height: 90vh;
-  margin: 50px auto;
+  padding-top: 94px;
 }
 
 #abouttext h2 {
@@ -151,17 +165,21 @@ body, input, button {
 
 #inputGit {
   width: 800px;
-  border: 2px solid #aaa;
+  border: 3px solid #eee;
   border-radius: 15px;
   outline: none;
   padding: 10px;
-  box-sizing: border-box;
   transition: .15s;
   margin-bottom: 50px;
 }
 
 #inputGit:focus {
-  box-shadow: 0 0 6px 0 green;
+  box-shadow: 0 0 10px 0 rgb(128, 189, 141);
+  width: 850px;
+}
+
+#inputGit:hover {
+  box-shadow: 0 0 10px 0 rgb(128, 189, 141);
 }
 
 #desafio {
@@ -270,16 +288,21 @@ body, input, button {
   box-shadow: 0 0 3px #ddd;
 }
 
-.btn input:focus, .btn input:hover {
+.btn input:hover {
   outline: 0;
   background-color: rgb(151, 215, 173);
   border: 2px solid rgb(121, 197, 148);
   color: #fff;
 }
 
+.btn input:focus {
+  outline: 0;
+}
+
 .btn input:active {
   background-color: #fff;
   color: #000;
+  transition: 0.2s;
 }
 
 #btn-starred {
@@ -290,6 +313,7 @@ body, input, button {
 
 #repo {
   margin: 20px 50px;
+  display: none;
 }
 
 #repo h3 {
@@ -327,6 +351,7 @@ body, input, button {
 
 #starred {
   margin: 20px 50px;
+  display: none;
 }
 
 #starred h3 {

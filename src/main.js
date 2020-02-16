@@ -45,7 +45,6 @@ function gitStarred(githubName) {
 // --------------------------------*--------------------------------
 
 
-
 // Renderizar Card:
 
 function renderGitCard(data) {
@@ -99,20 +98,30 @@ function renderGitRepo(data) {
 
   const repoDiv = document.getElementById('repo');
 
-  const repoDefault = 
+  if (data.length > 0) {
 
-  ` <hr>
-    <h3>LISTA DE REPOSITÓRIOS (LIMITADO A 30)</h3>
-    <ul id = "ulRepo">
-    </ul> `;
+    const repoDefault = 
 
-  repoDiv.innerHTML = repoDefault;
+    ` <hr>
+      <h3>LISTA DE REPOSITÓRIOS (LIMITADO A 30)</h3>
+      <ul id = "ulRepo">
+      </ul> `;
 
-  const ul = document.getElementById('ulRepo');
+    repoDiv.innerHTML = repoDefault;
 
-  const repoList = data.reduce((acc, actualObj) => `${acc}<li>${actualObj.name}</li>`, "")
+    const ul = document.getElementById('ulRepo');
 
-  ul.innerHTML = repoList;
+    const repoList = data.reduce((acc, actualObj) => `${acc}<li>${actualObj.name}</li>`, "")
+
+    ul.innerHTML = repoList;
+
+} else {
+      
+    repoDiv.innerHTML = 
+
+    `<hr> 
+    <h3>Usuário não possui repositórios!</h3>`
+  }
 }
 
 
@@ -122,24 +131,31 @@ function renderGitStarred(data) {
 
   const starredDiv = document.getElementById('starred');
 
-  const starredDefault =
+  if (data.length > 0) {
 
-  ` <hr>
-    <h3>LISTA DE FAVORITOS (LIMITADO A 30)</h3>
-    <ul id = "ulStarred">
-    </ul> `;
+    const starredDefault =
 
-  starredDiv.innerHTML = starredDefault;
+    ` <hr>
+      <h3>LISTA DE FAVORITOS (LIMITADO A 30)</h3>
+      <ul id = "ulStarred">
+      </ul> `;
 
-  const ul = document.getElementById('ulStarred');
+    starredDiv.innerHTML = starredDefault;
 
-  const starredList = data.reduce((acc, actualObj) => `${acc}<li>${actualObj.name}</li>`, "")
+    const ul = document.getElementById('ulStarred');
 
-  ul.innerHTML = starredList;
+    const starredList = data.reduce((acc, actualObj) => `${acc}<li>${actualObj.name}</li>`, "")
 
-   
+    ul.innerHTML = starredList;
+
+} else {
+
+    starredDiv.innerHTML = 
+
+    `<hr> 
+     <h3>Usuário não possui favoritos!</h3>`
+  }
 }
-
 
 // --------------------------------*--------------------------------
 
@@ -151,7 +167,7 @@ function renderGitStarred(data) {
 window.showRepo = function() {
   const listRepo = document.getElementById('repo');
 
-  if ((listRepo.style.display == 'none') ? (listRepo.style.display = 'block') : (listRepo.style.display = 'none'));
+  if ((listRepo.style.display == 'block') ? (listRepo.style.display = 'none') : (listRepo.style.display = 'block'));
 }
 
 
@@ -160,7 +176,7 @@ window.showRepo = function() {
 window.showStarred = function() {
   const listStarred = document.getElementById('starred');
 
-  if ((listStarred.style.display == 'none') ? (listStarred.style.display = 'block') : (listStarred.style.display = 'none'));
+  if ((listStarred.style.display == 'block') ? (listStarred.style.display = 'none') : (listStarred.style.display = 'block'));
 }
 
 
