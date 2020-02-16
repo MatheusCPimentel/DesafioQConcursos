@@ -2,75 +2,80 @@
 
 // Profile:
 
-async function gitProfile() {
-  await fetch("https://api.github.com/users/qcx").then(response => {
+function gitProfile(githubName) {
+  fetch(`https://api.github.com/users/${githubName}`).then(response => {
       if (!response.ok) {
-          throw Error('err');
+          throw Error('GitHub profile did not find!');
       } 
       return response.json();
   }).then(data => {
-      console.log(data);
       renderGitCard(data);
   }).catch(err => {
-      console.log(err);
+      console.error(err);
   });
 }
 
 
 // Repositório:
 
-async function gitRepo() {
-  await fetch("https://api.github.com/users/qcx/repos").then(response => {
-      if (!response.ok) {
-          throw Error('err')
-      }
+function gitRepo(githubName) {
+  fetch(`https://api.github.com/users/${githubName}/repos`).then(response => {
       return response.json()
   }).then(data => {
-      renderRepo(data)
+      renderGitRepo(data)
   }).catch(err => {
-      console.log(err)
+      console.warn(err)
   })
 }
 
 
 // Favoritos:
 
-async function gitStarred() {
-  await fetch("https://api.github.com/users/qcx/starred").then(response => {
-      if (!response.ok) {
-          throw Error('err')
-      }
+function gitStarred(githubName) {
+  fetch(`https://api.github.com/users/${githubName}/starred`).then(response => {
       return response.json()
   }).then(data => {
-      renderStarred(data)
+      renderGitStarred(data)
   }).catch(err => {
-      console.log(err)
+      console.warn(err)
   })
 }
 
-gitProfile();
-gitRepo();
-gitStarred();
+
+// --------------------------------*--------------------------------
 
 
-// Renderizar Desafios:
+
+// Renderizar Card:
 
 function renderGitCard(data) {
+
+  const name = data.name;
+  const avatar = data.avatar_url;
+  const link = data.html_url;
+  const repos = data.public_repos;
+  const followers = data.followers;
+  const following = data.following;
+
   const divProfile = document.getElementById('profile');
+
   const resHtml = 
-  ` <h1>${data.name}</h1>
+
+  ` <h1>${name}</h1>
   
     <div class="container-gitRepo">
       <div class="left">
-          <img src="${data.avatar_url}">
-          <a href="${data.html_url}" target="_blank">VISITAR PERFIL</a>
+          <a href="${avatar}" target="_blank" img src>
+            <img src="${avatar}"> 
+          </a>
+          <a href="${link}" target="_blank">VISITAR PERFIL</a>
       </div>
 
       <div class="right">
         <ul>
-          <li>REPOSITÓRIOS: ${data.public_repos}</li>
-          <li>SEGUIDORES: ${data.followers}</li>
-          <li>SEGUINDO: ${data.following}</li>
+          <li>REPOSITÓRIOS: ${repos}</li>
+          <li>SEGUIDORES: ${followers}</li>
+          <li>SEGUINDO: ${following}</li>
         </ul>
           <div class="btn">
             <input type="button" value="VER REPOSITÓRIOS" id="btn-rep" onclick="showRepo()"></input>
@@ -79,8 +84,91 @@ function renderGitCard(data) {
         </div>
      </div>
 
-    <div id="repo-list"></div>
+    <div id="repo"></div>
+    <div id="starred"></div>
     </div> `;
 
   divProfile.innerHTML = resHtml;
 }
+
+
+
+// Renderizar Repositórios:
+
+function renderGitRepo(data) {
+
+  const repoDiv = document.getElementById('repo');
+  const repoList = 
+
+  ` <hr>
+    <h3>LISTA DOS 5 PRIMEIROS REPOSITÓRIOS</h3>
+    <ul>
+      <li>${data[0].name}</li>
+      <li>${data[1].name}</li>
+      <li>${data[2].name}</li>
+      <li>${data[3].name}</li>
+      <li>${data[4].name}</li>
+      <li>${data[5].name}</li>
+     </ul> `;
+
+  repoDiv.innerHTML = repoList;
+}
+
+
+// Renderizar Favoritos:
+
+function renderGitStarred(data) {
+
+  const starredDiv = document.getElementById('starred');
+
+  const starredDefault =
+
+  ` <hr>
+    <h3>LISTA DOS 5 PRIMEIROS FAVORITOS</h3>
+    <ul>
+    </ul> `;
+
+     starredDiv.innerHTML = starredDefault;
+  }
+
+
+// --------------------------------*--------------------------------
+
+
+// Métodos de clique no botão:
+
+// Mostrar Repositórios:
+
+window.showRepo = function() {
+  const listRepo = document.getElementById('repo');
+
+  if ((listRepo.style.display == 'none') ? (listRepo.style.display = 'block') : (listRepo.style.display = 'none'));
+}
+
+
+// Mostrar Favoritos:
+
+window.showStarred = function() {
+  const listStarred = document.getElementById('starred');
+
+  if ((listStarred.style.display == 'none') ? (listStarred.style.display = 'block') : (listStarred.style.display = 'none'));
+}
+
+
+// --------------------------------*--------------------------------
+
+// Procurar por perfil no GitHub:
+
+const inputEle = document.getElementById('inputGit');
+inputEle.addEventListener('keyup', function(e){
+  var key = e.which || e.keyCode;
+  if (key == 13) { 
+    gitProfile(this.value);
+    gitRepo(this.value);
+    gitStarred(this.value);
+  }
+});
+
+gitProfile('matheuscpimentel');
+gitRepo('matheuscpimentel');
+gitStarred('matheuscpimentel');

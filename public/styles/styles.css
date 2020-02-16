@@ -136,14 +136,14 @@ body, input, button {
 }
 
 
-/* Desafio: */
+/* Desafio - Card: */
 
 #gitDiv {
   text-align: center;
 }
 
 #inputGit {
-  width: 900px;
+  width: 800px;
   border: 2px solid #aaa;
   border-radius: 15px;
   outline: none;
@@ -154,12 +154,13 @@ body, input, button {
 }
 
 #inputGit:focus {
-  box-shadow: 0 0 6px 0 dodgerblue;
+  box-shadow: 0 0 6px 0 green;
 }
 
 #desafio {
   background-color: rgb(232, 245, 235);
   min-height: 85vh;
+  padding-bottom: 100px;
 }
 
 #desafio h2 {
@@ -173,10 +174,10 @@ body, input, button {
 #profile {
   background-color: #fff;
   padding: 20px;
-  width: 900px;
+  width: 800px;
   box-sizing: border-box;
   margin: auto;
-  box-shadow: 0px 0px 5px black;
+  box-shadow: 0 0 10px #ddd;
 }
 
 #profile h1 {
@@ -195,7 +196,10 @@ body, input, button {
 }
 
 .left {
-  margin: 30px;
+  margin-left: 50px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .left a {
@@ -203,20 +207,150 @@ body, input, button {
   font-size: 17px;
   font-weight: 700;
   color: rgb(6, 50, 23);
+  margin-top: 30px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.left a:hover {
+  color:  rgb(151, 215, 173);
 }
 
 .left img {
-  height: 160px;
+  height: 180px;
   border-radius: 50%;
+  opacity: 100%;
+  border: 3px solid rgb(6, 50, 23);
+  box-shadow: 0 0 5px #222;
+  transition: 0.3s;
+}
+
+.left img:hover {
+  opacity: 85%;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 60px;
+  height: 300px;
 }
 
 .right ul {
   list-style: none;
-  margin-bottom: 50px;
+  font-size: 1.1em;
+  margin-top: 40px;
 }
 
 .right ul li{
   line-height: 30px;
+}
+
+.btn input {
+  cursor: pointer;
+  width: 200px;
+  height: 44px;
+  font-weight: 700;
+  border: 2px solid rgb(151, 215, 173);
+  color: rgb(151, 215, 173);
+  background-color: transparent;
+  font-size: 15px;
+  letter-spacing: 1px;
+  opacity: 100%;
+  border-radius: 3px;
+  transition: 0.3s;
+  box-shadow: 0 0 3px #ddd;
+}
+
+.btn input:focus, .btn input:hover {
+  outline: 0;
+  background-color: rgb(151, 215, 173);
+  border: 2px solid rgb(121, 197, 148);
+  color: #fff;
+}
+
+.btn input:active {
+  background-color: #fff;
+  color: #000;
+}
+
+#btn-starred {
+  margin-left: 20px;
+}
+
+/* Desafio - Repositórios: */
+
+#repo {
+  margin: 20px 50px;
+}
+
+#repo h3 {
+  color: rgb(6, 50, 23);
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+  word-spacing: 1px;
+}
+
+#repo hr {
+  background-color: #aaa; 
+  height: 1px; 
+  border: 0; 
+  opacity: 15%;
+  margin-left: 5%;
+  margin-bottom: 50px;
+}
+
+#repo ul {
+  list-style: none;
+}
+
+#repo ul li {
+  background-color: rgb(210, 238, 223);
+  padding: 7px;
+  letter-spacing: 1px;
+  font-size: 0.9em;
+}
+
+#repo ul li:nth-child(even) {
+  background-color: #fff;
+}
+
+/* Desafio - Favoritos: */
+
+#starred {
+  margin: 20px 50px;
+}
+
+#starred h3 {
+  color: rgb(6, 50, 23);
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+  word-spacing: 1px;
+}
+
+#starred hr {
+  background-color: #aaa; 
+  height: 1px; 
+  border: 0; 
+  opacity: 15%;
+  width: 90%;
+  margin-left: 5%;
+  margin-bottom: 50px;
+}
+
+#starred ul {
+  list-style: none;
+}
+
+#starred ul li {
+  background-color: rgb(210, 238, 223);
+  padding: 7px;
+  letter-spacing: 1px;
+}
+
+#starred ul li:nth-child(even) {
+  background-color: #fff;
 }
 
 
