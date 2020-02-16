@@ -7,10 +7,9 @@ async function gitProfile (githubName) {
       const data = await fetch(`https://api.github.com/users/${githubName}`);
       return renderGitCard(await data.json());
   } catch (err) {
-      console.error(err)
+      console.error(err);
   }
 }
-
 
 // Repositório:
 
@@ -43,45 +42,66 @@ async function gitStarred (githubName) {
 
 function renderGitCard(data) {
 
-  const name = data.name;
-  const avatar = data.avatar_url;
-  const link = data.html_url;
-  const repos = data.public_repos;
-  const followers = data.followers;
-  const following = data.following;
+  if (!data.message) {
 
-  const divProfile = document.getElementById('profile');
+    const name = data.name;
+    const avatar = data.avatar_url;
+    const link = data.html_url;
+    const repos = data.public_repos;
+    const followers = data.followers;
+    const following = data.following; 
 
-  const resHtml = 
+    const divProfile = document.getElementById('profile');
 
-  ` <h1>${name}</h1>
-  
-    <div class="container-gitRepo">
-      <div class="left">
-          <a href="${avatar}" target="_blank" img src>
-            <img src="${avatar}"> 
-          </a>
-          <a href="${link}" target="_blank">VISITAR PERFIL</a>
+    const resHtml = 
+
+    ` <h1>${name}</h1>
+    
+      <div class="container-gitRepo">
+        <div class="left">
+            <a href="${avatar}" target="_blank" img src>
+              <img src="${avatar}"> 
+            </a>
+            <a href="${link}" target="_blank">VISITAR PERFIL</a>
+        </div>
+
+        <div class="right">
+          <ul id ="liRepo">
+            <li>REPOSITÓRIOS: ${repos}</li>
+            <li>SEGUIDORES: ${followers}</li>
+            <li>SEGUINDO: ${following}</li>
+          </ul>
+            <div class="btn">
+              <input type="button" value="VER REPOSITÓRIOS" id="btn-rep" onclick="showRepo()"></input>
+              <input type="button" value="VER FAVORITOS" id="btn-starred" onclick="showStarred()"></input>
+            </div>
+          </div>
       </div>
 
-      <div class="right">
-        <ul id ="liRepo">
-          <li>REPOSITÓRIOS: ${repos}</li>
-          <li>SEGUIDORES: ${followers}</li>
-          <li>SEGUINDO: ${following}</li>
-        </ul>
-          <div class="btn">
-            <input type="button" value="VER REPOSITÓRIOS" id="btn-rep" onclick="showRepo()"></input>
-            <input type="button" value="VER FAVORITOS" id="btn-starred" onclick="showStarred()"></input>
+      <div id="repo"></div>
+      <div id="starred"></div>
+      </div> `;
+
+    divProfile.innerHTML = resHtml;
+
+  } else {
+
+    const divProfile = document.getElementById('profile');
+
+    const resHtml = 
+
+    ` <div class="container-gitRepo">
+          <div class="left">
+                <img src="./images/usernotfound.jpg"> 
+              </a>
           </div>
-        </div>
-     </div>
+          <div class="right">
+            <h1>Usuário não encontrado!</h1>
+          </div>`
 
-    <div id="repo"></div>
-    <div id="starred"></div>
-    </div> `;
+    divProfile.innerHTML = resHtml;
 
-  divProfile.innerHTML = resHtml;
+  }
 }
 
 

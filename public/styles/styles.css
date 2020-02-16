@@ -126,6 +126,16 @@ body {
 
 /* Sobre: */
 
+#sobre img {
+  height: 80px;
+  width: 80px;
+  margin-left: 50px;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 50px;
+  border-radius: 60%;
+}
+
 #sobre {
   width: 100%;
   min-height: 90vh;
