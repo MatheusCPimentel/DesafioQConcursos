@@ -1,5 +1,13 @@
 /* Sobre: */
 
+#arrowabout {
+  height: 60px;
+  width: 60px;
+  margin: 20px;
+  position: absolute;
+  top: 870px;
+}
+
 #sobre {
   width: 100%;
   min-height: 90vh;
