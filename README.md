@@ -21,3 +21,14 @@ Na raiz do projeto temos o arquivo `webpack.config.js` e o `.babelrc`. Com os do
 Além do mais, temos o arquivo `.gitignore` para ignorarmos a pasta `node_modules` quando formos enviar ao GitHub, e também o arquivo `package.json`, onde estão todas as nossas dependências e os scripts.
 
 Partindo para a pasta `public`, na raiz está o nosso arquivo `index.html` e também o arquivo `bundle.js`, que foi gerado com o comando `yarn webpack-dev-server --mode=development (script: yarn build)`. Na pasta `styles` estão os arquivos .css e na pasta `images`, as imagens.
+
+<br>
+
+## Imagens:
+
+<br>
+
+<img src="./public/images/home-page.png">
+<img src="./public/images/about.png">
+<img src="./public/images/challange-card-collapsed.png">
+<img src="./public/images/challange-card-expanded.png">
