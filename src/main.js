@@ -46,8 +46,9 @@ async function gitStarred (githubName) {
 function renderGitCard(data) {
 
   if (!data.message) {
-
-    const name = data.name;
+    
+    if ((data.name == null) ? (name = data.login) : (name = data.name));
+    
     const avatar = data.avatar_url;
     const link = data.html_url;
     const repos = data.public_repos;
