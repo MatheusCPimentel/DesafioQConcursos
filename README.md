@@ -28,7 +28,7 @@ Partindo para a pasta `public`, na raiz está o nosso arquivo `index.html` e tam
 
 <br>
 
-<img src="./public/images/home-page.png">
-<img src="./public/images/about.png">
-<img src="./public/images/challange-card-collapsed.png">
-<img src="./public/images/challange-card-expanded.png">
+![homepage](https://github.com/MatheusCPimentel/DesafioQConcursos/blob/master/public/images/home-page.PNG)
+![about](https://github.com/MatheusCPimentel/DesafioQConcursos/blob/master/public/images/about.PNG)
+![challange-card-collapsed](https://github.com/MatheusCPimentel/DesafioQConcursos/blob/master/public/images/challange-card-collapsed.PNG)
+![challange-card-expanded](https://github.com/MatheusCPimentel/DesafioQConcursos/blob/master/public/images/challange-card-expanded.PNG)
