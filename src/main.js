@@ -11,6 +11,7 @@ async function gitProfile (githubName) {
   }
 }
 
+
 // Repositório:
 
 async function gitRepo (githubName) {
@@ -38,7 +39,9 @@ async function gitStarred (githubName) {
 // --------------------------------*--------------------------------
 
 
-// Renderizar Card:
+// Renderizações no HTML:
+
+// Profile Card:
 
 function renderGitCard(data) {
 
@@ -105,8 +108,7 @@ function renderGitCard(data) {
 }
 
 
-
-// Renderizar Repositórios:
+// Repositórios:
 
 function renderGitRepo(data) {
 
@@ -139,7 +141,7 @@ function renderGitRepo(data) {
 }
 
 
-// Renderizar Favoritos:
+// Favoritos:
 
 function renderGitStarred(data) {
 
@@ -170,6 +172,7 @@ function renderGitStarred(data) {
      <h3>Usuário não possui favoritos!</h3>`
   }
 }
+
 
 // --------------------------------*--------------------------------
 
@@ -221,6 +224,11 @@ search.onclick = function() {
   gitStarred(inputEle.value);
 };
 
+
+// --------------------------------*--------------------------------
+
+
+// Requisitar meu perfil do GitHub como padrão ao carregar a página:
 
 gitProfile('matheuscpimentel');
 gitRepo('matheuscpimentel');
