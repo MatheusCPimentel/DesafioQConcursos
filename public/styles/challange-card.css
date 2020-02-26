@@ -4,15 +4,9 @@
   text-align: center;
 }
 
-#gitDiv img {
-  width: 28px;
-  margin-left: -45px;
-  margin-bottom: -8px;
-  cursor: pointer;
-}
-
 #inputGit {
   width: 800px;
+  max-width: 85%;
   border: 3px solid #eee;
   border-radius: 15px;
   outline: none;
@@ -23,7 +17,6 @@
 
 #inputGit:focus {
   box-shadow: 0 0 10px 0 rgb(128, 189, 141);
-  width: 850px;
 }
 
 #inputGit:hover {
@@ -48,7 +41,7 @@
   background-color: #fff;
   padding: 20px;
   width: 800px;
-  box-sizing: border-box;
+  max-width: 100%;
   margin: auto;
   box-shadow: 0 0 10px #ddd;
 }
@@ -69,10 +62,10 @@
 }
 
 .left {
-  margin-left: 50px;
-  margin-bottom: 20px;
+  margin-bottom: 4%;
   display: flex;
   flex-direction: column;
+  width: 40%;
 }
 
 .left a {
@@ -90,7 +83,10 @@
 }
 
 .left img {
-  height: 180px;
+  height: 80%;
+  width: 80%;
+  max-width: 200px;
+  max-height: 200px;
   border-radius: 50%;
   opacity: 100%;
   border: 3px solid rgb(6, 50, 23);
@@ -106,8 +102,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  margin-left: 60px;
   height: 300px;
+  width: 60%;
 }
 
 .right ul {
@@ -122,13 +118,13 @@
 
 .btn input {
   cursor: pointer;
-  width: 200px;
+  width: 40%;
   height: 44px;
   font-weight: 700;
   border: 2px solid rgb(151, 215, 173);
   color: rgb(151, 215, 173);
   background-color: transparent;
-  font-size: 15px;
+  font-size: 0.9em;
   letter-spacing: 1px;
   opacity: 100%;
   border-radius: 3px;
@@ -233,4 +229,31 @@
 
 #starred ul li:nth-child(even) {
   background-color: #fff;
+}
+
+
+/* Not Found: */
+
+#notfound {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 300px;
+}
+
+#notfound img {
+  margin: 0 20px;
+  height: 80%;
+  width: 80%;
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 50%;
+  opacity: 100%;
+  border: 3px solid rgb(6, 50, 23);
+  box-shadow: 0 0 5px #222;
+}
+
+#notfound h1 {
+  margin: 0 20px;
 }
