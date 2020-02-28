@@ -6,6 +6,8 @@ Sem utilizar qualquer framework, dei meu máximo para construir esta página e m
 
 Neste projeto utilizei o `Webpack` para melhor organização dos arquivos e pastas, e também o `Babel` para o entendimento do código JavaScript em navegadores mais antigos.
 
+**Você pode visualizar a página em funcionamento no _GitHub pages_ pelo link: https://matheuscpimentel.github.io/desafioqconcursos/**
+
 <br>
 
 ## Instalação:
